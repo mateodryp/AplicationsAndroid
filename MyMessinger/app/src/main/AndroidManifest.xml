@@ -11,7 +11,8 @@
         android:theme="@style/Theme.MyMessinger">
 
         <activity android:name=".activity_create_message"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -19,8 +20,8 @@
         </activity>
 
         <activity
-            android:name=".activity_receive_message">
-
+            android:name=".activity_receive_message"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
     </application>
 

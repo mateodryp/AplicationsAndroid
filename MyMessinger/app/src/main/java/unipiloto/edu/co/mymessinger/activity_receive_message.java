@@ -10,12 +10,14 @@ import android.widget.TextView;
 
 public class activity_receive_message extends AppCompatActivity {
 
+    String messageR="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_receive_message);
         Intent intent = getIntent();
         String messageText = intent.getStringExtra("messageCreate");
+        messageR = messageText;
         TextView messageView = (TextView) findViewById(R.id.textViewReceive);
         messageView.setText(messageText);
     }
@@ -24,7 +26,8 @@ public class activity_receive_message extends AppCompatActivity {
         EditText messageView = (EditText) findViewById(R.id.messageReceive);
         String messageText = messageView.getText().toString();
         Intent intent = new Intent(this, activity_create_message.class);
-        intent.putExtra("messageReceive",messageText);
+        messageR = messageR +"\n"+"Usuario Receptor: " +messageText;
+        intent.putExtra("messageReceive",messageR);
         startActivity(intent);
     }
 }

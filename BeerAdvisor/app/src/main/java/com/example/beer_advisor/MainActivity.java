@@ -22,6 +22,6 @@ public class MainActivity extends AppCompatActivity {
         Spinner color = (Spinner) findViewById(R.id.color);
         String beerType = String.valueOf(color.getSelectedItem());
         String [] list = BeerExpert.getBrands(beerType);
-        brands.setText(list[0] + "  " +list[1] + "  "+ list[2]);
+        brands.setText(list[0] + "\n" +list[1] + "\n"+ list[2]);
     }
 }
