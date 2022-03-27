@@ -21,11 +21,11 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/titleSU"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="50dp"
-            android:text="Select User"
+            android:text="@string/SU_title"
             android:textColor="@color/white"
             android:textSize="22pt" />
 
@@ -44,16 +44,16 @@
 
 
                 <ImageView
-                    android:id="@+id/imageView"
+                    android:id="@+id/SU_imageRec"
                     android:layout_width="151dp"
                     android:layout_height="100dp"
                     app:srcCompat="@drawable/user_rec" />
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/SU_Rec"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Reciclador"
+                    android:text="@string/SU_res"
                     android:textColor="@color/white"
                     android:textSize="30sp" />
             </LinearLayout>
@@ -61,20 +61,20 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:onClick="onClickRegisterProv"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/imageView2"
+                    android:id="@+id/SU_imageProv"
                     android:layout_width="123dp"
                     android:layout_height="99dp"
                     app:srcCompat="@drawable/user_prov" />
 
                 <TextView
-                    android:id="@+id/textView6"
+                    android:id="@+id/SU_Prov"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Proveedor"
+                    android:text="@string/SU_prov"
                     android:textColor="@color/white"
                     android:textSize="30sp" />
             </LinearLayout>

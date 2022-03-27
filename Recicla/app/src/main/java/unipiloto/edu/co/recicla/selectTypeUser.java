@@ -18,4 +18,9 @@ public class selectTypeUser extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), registerRec.class);
         startActivity(intent);
     }
+
+    public void onClickRegisterProv(View view){
+        Intent intent = new Intent(getApplicationContext(), registerProv.class);
+        startActivity(intent);
+    }
 }

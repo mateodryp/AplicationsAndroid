@@ -1,3 +1,34 @@
 <resources>
     <string name="app_name">Recicla+</string>
+
+    <!--Words used in Login Screen-->
+    <string name="login_signIn">Sign In</string>
+    <string name="login_email">Email</string>
+    <string name="login_passwd">Password</string>
+    <string name="login_register">Register</string>
+    <string name="login_button">LOGIN</string>
+
+    <!--Words used in Select User Register Screen-->
+    <string name="SU_title">Select User</string>
+    <string name="SU_res">Reciclador</string>
+    <string name="SU_prov">Proveedor</string>
+
+    <!--Words used in Register Rec and Prov Screen-->
+    <string name="REGR_reg">Register</string>
+    <string name="REGR_name_t">Name:</string>
+    <string name="REGR_name_c">Name</string>
+    <string name="REGR_lname_t">Last name:</string>
+    <string name="REGR_lname_c">Last name</string>
+    <string name="REGR_email_t">Email:</string>
+    <string name="REGR_email_c">Email</string>
+    <string name="REGR_phone_t">Phone:</string>
+    <string name="REGR_phone_c">Phone</string>
+    <string name="REGR_passwd_t">Password:</string>
+    <string name="REGR_passwd_c">Password</string>
+    <string name="REGR_cpasswd_t">Confirm password</string>
+    <string name="REGR_address_c">Address</string>
+    <string name="REGR_address_t">Address:</string>
+    <string name="REGR_button">Register</string>
+
+
 </resources>

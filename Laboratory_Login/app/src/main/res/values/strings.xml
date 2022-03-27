@@ -1,0 +1,16 @@
+<resources>
+    <string name="login_email">Email</string>
+    <string name="login_passw">Password</string>
+    <string name="login_login">Login</string>
+    <string name="login_register">Register</string>
+    <string name="app_name">Laboratory_Login</string>
+    <string name="register_nombre">Nombre Completo</string>
+    <string name="register_usuario">Usuario</string>
+
+    <string-array name="register_roles">
+        <item>Propietario de carga</item>
+        <item>Propietario de camión</item>
+        <item>Conductor</item>
+    </string-array>
+
+</resources>
