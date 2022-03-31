@@ -13,8 +13,17 @@
         android:theme="@style/Theme.Recicla"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".PublicarMaterial"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".Menu_prov"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
             android:name=".Menu_rec"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".registerProv"
             android:exported="false"

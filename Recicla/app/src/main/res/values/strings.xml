@@ -31,4 +31,12 @@
     <string name="REGR_button">Register</string>
 
 
+    <string-array name="materials">
+        <item>Carton</item>
+        <item>Vidrio</item>
+        <item>Metal</item>
+        <item>Papel</item>
+    </string-array>
+
+
 </resources>

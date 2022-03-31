@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/menuRec_bienvenido"
+            android:id="@+id/menuProv_bienvenido"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Bienvenido"
@@ -26,7 +26,7 @@
             android:textSize="25sp" />
 
         <TextView
-            android:id="@+id/menuRec_name"
+            android:id="@+id/menuProv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -36,7 +36,6 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:background="@color/GreenMain"
@@ -47,44 +46,47 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
-            android:id="@+id/MenuRec_home"
+            android:id="@+id/menuProv_home"
             android:layout_width="50dp"
-            android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
+            android:layout_height="wrap_content"
             app:srcCompat="@drawable/home_rec" />
 
         <ImageView
-            android:id="@+id/MenuRec_solicitudes"
+            android:id="@+id/menuProv_solicitudes"
             android:layout_width="50dp"
-            android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
+            android:layout_height="wrap_content"
             app:srcCompat="@drawable/solicitud_rec" />
 
         <ImageView
-            android:id="@+id/MenuRec_history"
+            android:id="@+id/menuProv_history"
             android:layout_width="50dp"
-            android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
+            android:layout_height="wrap_content"
             app:srcCompat="@drawable/history_rec" />
 
         <ImageView
-            android:id="@+id/MenuRec_config"
+            android:id="@+id/menuProv_config"
+            android:layout_marginLeft="50dp"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
 
             app:srcCompat="@drawable/config_rec" />
     </LinearLayout>
 
-    <ListView
-        android:id="@+id/MenuRec_list"
-        android:layout_width="409dp"
-        android:layout_height="580dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.304"
-        tools:layout_editor_absoluteX="0dp"
-        tools:ignore="MissingConstraints" />
+    <Button
+        android:id="@+id/button"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:text="Crear publicación"
+        android:background="@color/GreenMain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        android:textColor="@color/white"
+        android:onClick="onClickPublicar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,9 +10,13 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.Serializable;
+
 import retrofit2.Call;
 import retrofit2.Callback;
-import unipiloto.edu.co.recicla.models.Response;
+import retrofit2.Response;
+import unipiloto.edu.co.recicla.models.LoginRequest;
+import unipiloto.edu.co.recicla.models.LoginResponse;
 import unipiloto.edu.co.recicla.remote.APIService;
 import unipiloto.edu.co.recicla.remote.RetrofitClient;
 
@@ -36,35 +40,53 @@ public class login extends AppCompatActivity {
         APIService service = RetrofitClient.getApiService();
 
         if( !email.getText().toString().equals("") &  !password.getText().toString().equals("")){
+            LoginRequest loginRequest = new LoginRequest();
+            loginRequest.setEmail(email.getText().toString());
+            loginRequest.setPassword(password.getText().toString());
 
-            Call<Response> call = service.login(
-                    email.getText().toString()
-                    ,password.getText().toString());
-            call.enqueue(new Callback<Response>() {
+
+            Call<LoginResponse> loginResponseCall = RetrofitClient.getApiService().userLogin(loginRequest);
+            loginResponseCall.enqueue(new Callback<LoginResponse>() {
                 @Override
-                public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
-                    Log.e("Response", ""+response.raw().message());
+                public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                     String code= String.valueOf(response.raw().code());
-
                     if(code.equals("201")){
-                        Intent intent=new Intent(getApplicationContext(), Menu_rec.class);
-                        startActivity(intent);
-                        finish();
+
+                        LoginResponse loginresponse = response.body();
+                        if(loginresponse.isProvider()){
+                            Intent intent=new Intent(getApplicationContext(), Menu_prov.class);
+                            intent.putExtra("token", loginresponse.getToken());
+                            intent.putExtra("email", loginresponse.getEmail());
+                            intent.putExtra("id", String.valueOf(loginresponse.getId()));
+                            intent.putExtra("name", loginresponse.getName() +" "+  loginresponse.getLast_name());
+                            startActivity(intent);
+                            finish();
+                        }else{
+                            if(loginresponse.isRecycler()){
+                                Intent intent=new Intent(getApplicationContext(), Menu_rec.class);
+                                intent.putExtra("token", loginresponse.getToken());
+                                intent.putExtra("email", loginresponse.getEmail());
+                                intent.putExtra("id", loginresponse.getId());
+                                intent.putExtra("name", loginresponse.getName() +" "+  loginresponse.getLast_name());
+                                startActivity(intent);
+                                finish();
+                            }
+                        }
+
                     }else{
                         Toast.makeText(getApplicationContext(),"Usuario o contraseña incorrectos",Toast.LENGTH_LONG).show();
                     }
+
                 }
 
                 @Override
-                public void onFailure(Call<Response> call, Throwable t) {
-                    Log.e("Error", ""+t.toString());
+                public void onFailure(Call<LoginResponse> call, Throwable t) {
                     Toast.makeText(getApplicationContext(),"Error al conectarse al servidor",Toast.LENGTH_LONG).show();
                     Intent intent=new Intent(getApplicationContext(),login.class);
                     startActivity(intent);
                     finish();
                 }
             });
-
 
 
 
@@ -75,3 +97,4 @@ public class login extends AppCompatActivity {
 
     }
 }
+
