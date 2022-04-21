@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/menuProv_bienvenido"
+            android:id="@+id/menuProvSA_bienvenido"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Bienvenido"
@@ -26,7 +26,7 @@
             android:textSize="25sp" />
 
         <TextView
-            android:id="@+id/menuProv_name"
+            android:id="@+id/menuProvSA_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -46,28 +46,28 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
-            android:id="@+id/menuProv_home"
+            android:id="@+id/menuProvSA_home"
             android:layout_width="50dp"
             android:layout_marginLeft="30dp"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/home_rec" />
 
         <ImageView
-            android:id="@+id/menuProv_solicitudes"
+            android:id="@+id/menuProvSA_solicitudes"
             android:layout_width="50dp"
             android:layout_marginLeft="50dp"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/solicitud_rec" />
 
         <ImageView
-            android:id="@+id/menuProv_history"
+            android:id="@+id/menuProvSA_history"
             android:layout_width="50dp"
             android:layout_marginLeft="50dp"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/history_rec" />
 
         <ImageView
-            android:id="@+id/menuProv_config"
+            android:id="@+id/menuProvSA_config"
             android:layout_marginLeft="50dp"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
@@ -75,26 +75,26 @@
             app:srcCompat="@drawable/config_rec" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:background="@color/GreenMain"
-        android:onClick="onClickPublicar"
-        android:text="Crear publicación"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/MenuProv_list" />
 
     <ListView
-        android:id="@+id/MenuProv_list"
+        android:id="@+id/MenuProvSA_list"
         android:layout_width="409dp"
         android:layout_height="500dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="88dp"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        tools:layout_editor_absoluteX="0dp" />
+        tools:layout_editor_absoluteX="2dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:textSize="32dp"
+        android:textColor="@color/GreenMain"
+        android:text="Solicitudes Activas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

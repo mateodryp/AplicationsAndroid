@@ -8,11 +8,15 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
+import unipiloto.edu.co.recicla.models.ListOwnPublications;
+import unipiloto.edu.co.recicla.models.ListOwnRequest;
 import unipiloto.edu.co.recicla.models.ListPublications;
 import unipiloto.edu.co.recicla.models.LoginRequest;
 import unipiloto.edu.co.recicla.models.LoginResponse;
 import unipiloto.edu.co.recicla.models.PublicacionRequest;
 import unipiloto.edu.co.recicla.models.Response;
+import unipiloto.edu.co.recicla.models.SolicitudRequest;
 
 public interface APIService {
 
@@ -50,6 +54,11 @@ public interface APIService {
     @GET("publications/list_publication/")
     Call<List<ListPublications>> getListPublications();
 
+    @GET("publications/publications_availables/{id}")
+    Call<List<ListOwnPublications>> getListOwnPublications(@Path("id") int id);
+
+    @GET("requests/requests_availables/{id}")
+    Call<List<ListOwnRequest>> getListOwnRequest(@Path("id") int id);
 
     @FormUrlEncoded
     @POST("publications/publication/")
@@ -60,6 +69,13 @@ public interface APIService {
             @Field("volume") String volume,
             @Field("description") String description,
             @Field("user") int user
+    );
+
+    @FormUrlEncoded
+    @POST("requests/add_request/")
+    Call<SolicitudRequest>registerSolicitud(
+            @Field("recycler") int recycler,
+            @Field("publication") int publication
     );
 
 

@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -18,31 +17,33 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import unipiloto.edu.co.recicla.models.ListOwnPublications;
+import unipiloto.edu.co.recicla.models.ListOwnRequest;
 import unipiloto.edu.co.recicla.remote.RetrofitClient;
 
-public class Menu_prov extends AppCompatActivity {
+public class SolicitudesActivasProv extends AppCompatActivity {
     private String token;
     private String email;
     private String name;
     private String id;
-    private ArrayList<ListOwnPublications> lista;
+    private ArrayList<ListOwnRequest> lista;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_prov);
+        setContentView(R.layout.activity_solicitudes_activas_prov);
         Intent intent = getIntent();
         token = intent.getStringExtra("token");
         email = intent.getStringExtra("email");
         name = intent.getStringExtra("name");
         id = intent.getStringExtra("id");
-        TextView nameText = (TextView) findViewById(R.id.menuProv_name);
+        TextView nameText = (TextView) findViewById(R.id.menuProvSA_name);
         nameText.setText(name);
 
-        ImageView solicitudes = (ImageView) findViewById(R.id.menuProv_solicitudes);
-        solicitudes.setOnClickListener(new View.OnClickListener() {
+        ImageView home = (ImageView) findViewById(R.id.menuProvSA_home);
+        home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getApplicationContext(),SolicitudesActivasProv.class);
+                Intent intent=new Intent(getApplicationContext(),Menu_prov.class);
                 intent.putExtra("token", token);
                 intent.putExtra("email", email);
                 intent.putExtra("id", id);
@@ -52,37 +53,31 @@ public class Menu_prov extends AppCompatActivity {
             }
         });
 
-        Call<List<ListOwnPublications>> listCall = RetrofitClient.getApiService().getListOwnPublications(Integer.parseInt(id));
-        listCall.enqueue(new Callback<List<ListOwnPublications>>() {
+        Call<List<ListOwnRequest>> call = RetrofitClient.getApiService().getListOwnRequest(Integer.parseInt(id));
+        call.enqueue(new Callback<List<ListOwnRequest>>() {
             @Override
-            public void onResponse(Call<List<ListOwnPublications>> call, Response<List<ListOwnPublications>> response) {
-                lista = (ArrayList<ListOwnPublications>) response.body();
-                ListView listView = (ListView) findViewById(R.id.MenuProv_list);
-                MyAdapterOwnPublication adapter = new MyAdapterOwnPublication(getApplicationContext(), R.layout.list_view_publications_prov, lista);
+            public void onResponse(Call<List<ListOwnRequest>> call, Response<List<ListOwnRequest>> response) {
+                lista = (ArrayList<ListOwnRequest>) response.body();
+                ListView listView = (ListView) findViewById(R.id.MenuProvSA_list);
+                MyAdapterOwnRequestAv adapter = new MyAdapterOwnRequestAv(getApplicationContext(), R.layout.list_view_solicitudes_proveedor, lista);
                 listView.setAdapter(adapter);
             }
 
             @Override
-            public void onFailure(Call<List<ListOwnPublications>> call, Throwable t) {
+            public void onFailure(Call<List<ListOwnRequest>> call, Throwable t) {
 
             }
         });
     }
 
-
-    public void onClickPublicar(View view){
-        Intent intent=new Intent(getApplicationContext(),PublicarMaterial.class);
-        intent.putExtra("token", token);
-        intent.putExtra("email", email);
-        intent.putExtra("name", name);
-        intent.putExtra("id", id);
-        startActivity(intent);
-        finish();
-    }
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if(keyCode == event.KEYCODE_BACK){
-            Intent intent=new Intent(getApplicationContext(), login.class);
+            Intent intent=new Intent(getApplicationContext(), Menu_prov.class);
+            intent.putExtra("token", token);
+            intent.putExtra("email", email);
+            intent.putExtra("id", id);
+            intent.putExtra("name", name);
             startActivity(intent);
             finish();
         }

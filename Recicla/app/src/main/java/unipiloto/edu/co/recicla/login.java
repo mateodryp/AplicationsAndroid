@@ -57,6 +57,7 @@ public class login extends AppCompatActivity {
                             Intent intent=new Intent(getApplicationContext(), Menu_prov.class);
                             intent.putExtra("token", loginresponse.getToken());
                             intent.putExtra("email", loginresponse.getEmail());
+                            String prueba =  String.valueOf(loginresponse.getId());
                             intent.putExtra("id", String.valueOf(loginresponse.getId()));
                             intent.putExtra("name", loginresponse.getName() +" "+  loginresponse.getLast_name());
                             startActivity(intent);
@@ -66,7 +67,7 @@ public class login extends AppCompatActivity {
                                 Intent intent=new Intent(getApplicationContext(), Menu_rec.class);
                                 intent.putExtra("token", loginresponse.getToken());
                                 intent.putExtra("email", loginresponse.getEmail());
-                                intent.putExtra("id", loginresponse.getId());
+                                intent.putExtra("id", String.valueOf(loginresponse.getId()));
                                 intent.putExtra("name", loginresponse.getName() +" "+  loginresponse.getLast_name());
                                 startActivity(intent);
                                 finish();

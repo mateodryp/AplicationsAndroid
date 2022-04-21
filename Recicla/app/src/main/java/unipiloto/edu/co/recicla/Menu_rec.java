@@ -1,10 +1,15 @@
 package unipiloto.edu.co.recicla;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.TestLooperManager;
+import android.view.KeyEvent;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -47,6 +52,24 @@ public class Menu_rec extends AppCompatActivity {
                 ListView listView = (ListView) findViewById(R.id.MenuRec_list);
                 MyAdapterPublication adapter = new MyAdapterPublication(getApplicationContext(), R.layout.list_view_publications_rec,lista);
                 listView.setAdapter(adapter);
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        Intent intent1 = new Intent(getApplicationContext(), PublicationInfo.class);
+                        intent1.putExtra("id_publication",String.valueOf(lista.get(i).getId_publication()));
+                        intent1.putExtra("tipo_material",lista.get(i).getType_material());
+                        intent1.putExtra("peso", lista.get(i).getWeight());
+                        intent1.putExtra("volumen", lista.get(i).getVolume());
+                        intent1.putExtra("direccion", lista.get(i).getAddress());
+                        intent1.putExtra("descripcion", lista.get(i).getDescription());
+                        intent1.putExtra("token", token);
+                        intent1.putExtra("email", email);
+                        intent1.putExtra("name", name);
+                        intent1.putExtra("id", String.valueOf(id));
+                        startActivity(intent1);
+                        finish();
+                    }
+                });
             }
 
             @Override
@@ -56,5 +79,15 @@ public class Menu_rec extends AppCompatActivity {
         });
 
 
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode == event.KEYCODE_BACK){
+            Intent intent=new Intent(getApplicationContext(), login.class);
+            startActivity(intent);
+            finish();
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

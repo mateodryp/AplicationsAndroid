@@ -3,16 +3,23 @@ package unipiloto.edu.co.recicla;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import unipiloto.edu.co.recicla.models.ListOwnPublications;
+import unipiloto.edu.co.recicla.models.ListPublications;
 import unipiloto.edu.co.recicla.models.PublicacionRequest;
 import unipiloto.edu.co.recicla.remote.APIService;
 import unipiloto.edu.co.recicla.remote.RetrofitClient;
@@ -22,6 +29,7 @@ public class PublicarMaterial extends AppCompatActivity {
     private String email;
     private String name;
     private String id;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +45,20 @@ public class PublicarMaterial extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 publicarMaterial(view);
+            }
+        });
+
+        ImageView home = (ImageView) findViewById(R.id.menuProv_home);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(),Menu_prov.class);
+                intent.putExtra("token", token);
+                intent.putExtra("email", email);
+                intent.putExtra("id", id);
+                intent.putExtra("name", name);
+                startActivity(intent);
+                finish();
             }
         });
     }
@@ -94,5 +116,18 @@ public class PublicarMaterial extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),"Por favor llenar todos los campos",Toast.LENGTH_LONG).show();
         }
 
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode == event.KEYCODE_BACK){
+            Intent intent=new Intent(getApplicationContext(), Menu_prov.class);
+            intent.putExtra("token", token);
+            intent.putExtra("email", email);
+            intent.putExtra("id", id);
+            intent.putExtra("name", name);
+            startActivity(intent);
+            finish();
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }
