@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/menuRec_public_bienvenido"
+            android:id="@+id/PubliAct_public_bienvenido"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Bienvenido"
@@ -26,7 +26,7 @@
             android:textSize="25sp" />
 
         <TextView
-            android:id="@+id/menuRec_public_name"
+            android:id="@+id/PubliAct_public_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -76,7 +76,7 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/RequestInfo_public_image"
+        android:id="@+id/PubliAct_public_image"
         android:layout_width="170dp"
         android:layout_height="170dp"
         android:layout_marginTop="44dp"
@@ -87,18 +87,18 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/RequestInfo_public_typeMaterial"
+        android:id="@+id/PubliAct_public_typeMaterial"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="32dp"
         android:text="Tipo de material: Vidrio"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RequestInfo_public_image" />
+        app:layout_constraintTop_toBottomOf="@+id/PubliAct_public_image" />
 
     <TextView
-        android:id="@+id/RequestInfo_public_recicler"
+        android:id="@+id/PubliAct_public_peso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -106,10 +106,10 @@
         android:text="Peso: 30 Kg"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RequestInfo_public_typeMaterial" />
+        app:layout_constraintTop_toBottomOf="@+id/PubliAct_public_typeMaterial" />
 
     <TextView
-        android:id="@+id/RequestInfo_public_idPublication"
+        android:id="@+id/PubliAct_public_volumen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -117,10 +117,10 @@
         android:text="Volumen: 3 m3"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RequestInfo_public_recicler" />
+        app:layout_constraintTop_toBottomOf="@+id/PubliAct_public_peso" />
 
     <TextView
-        android:id="@+id/RequestInfo_public_date"
+        android:id="@+id/PubliAct_public_direccion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -128,10 +128,10 @@
         android:text="Dirección: Cll 47 # 5 - 6"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RequestInfo_public_idPublication" />
+        app:layout_constraintTop_toBottomOf="@+id/PubliAct_public_volumen" />
 
     <TextView
-        android:id="@+id/RequestInfo_public_description"
+        android:id="@+id/PubliAct_public_description"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -139,22 +139,35 @@
         android:text="Descripción: Botellas de vidrio lkndrgsdnfglksjdfgnlksjdfnglksjdfgnlskdjfnglksdjfngkljsdfnglksdjgfnlksjdfg"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RequestInfo_public_date" />
+        app:layout_constraintTop_toBottomOf="@+id/PubliAct_public_direccion" />
 
     <Button
-        android:id="@+id/RequestInfo_public_Accept"
-        android:layout_width="200dp"
+        android:id="@+id/PubliAct_public_Delete"
+        android:layout_width="150dp"
         android:layout_height="40dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="36dp"
         android:background="@color/GreenMain"
         android:gravity="center"
-        android:text="Solicitar"
+        android:text="Eliminar"
         android:textColor="@color/white"
         android:textSize="8pt"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PubliAct_public_description" />
+
+    <Button
+        android:id="@+id/PubliAct_public_Edit"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="24dp"
+        android:background="@color/GreenMain"
+        android:gravity="center"
+        android:text="Editar"
+        android:textColor="@color/white"
+        android:textSize="8pt"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/PubliAct_public_description" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

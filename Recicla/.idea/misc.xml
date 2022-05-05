@@ -3,13 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Trabajo/AndroidStudioProjects/Recicla/app/src/main/res/layout/activity_edit_publication.xml" value="0.25" />
         <entry key="..\:/Users/Trabajo/AndroidStudioProjects/Recicla/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Users/Trabajo/AndroidStudioProjects/Recicla/app/src/main/res/layout/activity_menu_prov.xml" value="0.4" />
-        <entry key="..\:/Users/Trabajo/AndroidStudioProjects/Recicla/app/src/main/res/layout/activity_menu_rec.xml" value="0.11627906976744186" />
+        <entry key="..\:/Users/Trabajo/AndroidStudioProjects/Recicla/app/src/main/res/layout/activity_menu_rec.xml" value="0.25" />
         <entry key="..\:/Users/Trabajo/AndroidStudioProjects/Recicla/app/src/main/res/layout/activity_publicar_material.xml" value="0.25" />
         <entry key="..\:/Users/Trabajo/AndroidStudioProjects/Recicla/app/src/main/res/layout/activity_publication_info.xml" value="0.4" />
+        <entry key="..\:/Users/Trabajo/AndroidStudioProjects/Recicla/app/src/main/res/layout/activity_publications_actions.xml" value="0.25" />
         <entry key="..\:/Users/Trabajo/AndroidStudioProjects/Recicla/app/src/main/res/layout/activity_register_prov.xml" value="0.4" />
         <entry key="..\:/Users/Trabajo/AndroidStudioProjects/Recicla/app/src/main/res/layout/activity_register_rec.xml" value="0.4" />
+        <entry key="..\:/Users/Trabajo/AndroidStudioProjects/Recicla/app/src/main/res/layout/activity_request_info.xml" value="0.24427480916030533" />
         <entry key="..\:/Users/Trabajo/AndroidStudioProjects/Recicla/app/src/main/res/layout/activity_select_type_user.xml" value="0.264" />
         <entry key="..\:/Users/Trabajo/AndroidStudioProjects/Recicla/app/src/main/res/layout/activity_solicitudes_activas_prov.xml" value="0.2" />
         <entry key="..\:/Users/Trabajo/AndroidStudioProjects/Recicla/app/src/main/res/layout/activity_splash_screen.xml" value="0.2" />

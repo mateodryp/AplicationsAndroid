@@ -60,6 +60,24 @@ public class Menu_prov extends AppCompatActivity {
                 ListView listView = (ListView) findViewById(R.id.MenuProv_list);
                 MyAdapterOwnPublication adapter = new MyAdapterOwnPublication(getApplicationContext(), R.layout.list_view_publications_prov, lista);
                 listView.setAdapter(adapter);
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        Intent intent1 = new Intent(getApplicationContext(), PublicationsActions.class);
+                        intent1.putExtra("id_publication",String.valueOf(lista.get(i).getId_publication()));
+                        intent1.putExtra("tipo_material",lista.get(i).getType_material());
+                        intent1.putExtra("peso", lista.get(i).getWeight());
+                        intent1.putExtra("volumen", lista.get(i).getVolume());
+                        intent1.putExtra("direccion", lista.get(i).getAddress());
+                        intent1.putExtra("descripcion", lista.get(i).getDescription());
+                        intent1.putExtra("token", token);
+                        intent1.putExtra("email", email);
+                        intent1.putExtra("name", name);
+                        intent1.putExtra("id", String.valueOf(id));
+                        startActivity(intent1);
+                        finish();
+                    }
+                });
             }
 
             @Override

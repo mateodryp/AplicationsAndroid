@@ -12,6 +12,16 @@ public class ListOwnRequest {
     private int user;
     private String recycler;
     private int id_request;
+    private int id_recycler;
+
+    public int getId_recycler() {
+        return id_recycler;
+    }
+
+    public void setId_recycler(int id_recycler) {
+        this.id_recycler = id_recycler;
+    }
+
     private String state_request;
 
     public int getId_publication() {

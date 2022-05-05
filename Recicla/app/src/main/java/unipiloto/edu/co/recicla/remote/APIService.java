@@ -4,17 +4,24 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
+import unipiloto.edu.co.recicla.models.AcceptResponse;
+import unipiloto.edu.co.recicla.models.ActionRequestPublication;
+import unipiloto.edu.co.recicla.models.DeleteResponse;
+import unipiloto.edu.co.recicla.models.EditRequest;
 import unipiloto.edu.co.recicla.models.ListOwnPublications;
 import unipiloto.edu.co.recicla.models.ListOwnRequest;
 import unipiloto.edu.co.recicla.models.ListPublications;
 import unipiloto.edu.co.recicla.models.LoginRequest;
 import unipiloto.edu.co.recicla.models.LoginResponse;
 import unipiloto.edu.co.recicla.models.PublicacionRequest;
+import unipiloto.edu.co.recicla.models.RejectResponse;
 import unipiloto.edu.co.recicla.models.Response;
 import unipiloto.edu.co.recicla.models.SolicitudRequest;
 
@@ -57,12 +64,43 @@ public interface APIService {
     @GET("publications/publications_availables/{id}")
     Call<List<ListOwnPublications>> getListOwnPublications(@Path("id") int id);
 
+    @FormUrlEncoded
+    @POST("http://168.138.144.152:8000/requests/accepted_request/")
+    Call<ActionRequestPublication> acceptRequest(
+            @Field("publication") int publication,
+            @Field("recycler") int recycler,
+            @Field("id_request") int id_request
+    );
+
+    @FormUrlEncoded
+    @POST("http://168.138.144.152:8000/requests/reject_request/")
+    Call<ActionRequestPublication> rejectRequest(
+            @Field("publication") int publication,
+            @Field("recycler") int recycler,
+            @Field("id_request") int id_request
+    );
+
+    @DELETE("http://168.138.144.152:8000/publications/publication_delete/{id}/")
+    Call<DeleteResponse> deletePublication(@Path("id") int id);
+
     @GET("requests/requests_availables/{id}")
     Call<List<ListOwnRequest>> getListOwnRequest(@Path("id") int id);
 
     @FormUrlEncoded
     @POST("publications/publication/")
     Call<PublicacionRequest>registerPublication(
+            @Field("type_material") String type_material,
+            @Field("address") String address,
+            @Field("weight") String weight,
+            @Field("volume") String volume,
+            @Field("description") String description,
+            @Field("user") int user
+    );
+
+    @FormUrlEncoded
+    @PUT("publications/publication_update/{id}/")
+    Call<EditRequest>editPublication(
+            @Path("id") int id,
             @Field("type_material") String type_material,
             @Field("address") String address,
             @Field("weight") String weight,

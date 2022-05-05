@@ -13,6 +13,21 @@
         android:theme="@style/Theme.Recicla"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".EditPublication"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity
+            android:name=".PublicationsActions"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".RequestInfo"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
             android:name=".SolicitudesActivasProv"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />

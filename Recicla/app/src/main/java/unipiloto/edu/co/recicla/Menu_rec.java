@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -31,6 +32,10 @@ public class Menu_rec extends AppCompatActivity {
     private String name;
     private String id;
     private ArrayList<ListPublications> lista;
+    ArrayList<ListPublications> carton = new ArrayList<ListPublications>();
+    ArrayList<ListPublications> vidrio = new ArrayList<ListPublications>();
+    ArrayList<ListPublications> metal = new ArrayList<ListPublications>();
+    ArrayList<ListPublications> papel = new ArrayList<ListPublications>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +48,160 @@ public class Menu_rec extends AppCompatActivity {
         id = intent.getStringExtra("id");
         TextView nameText = (TextView) findViewById(R.id.menuRec_name);
         nameText.setText(name);
+
+        Spinner filter = (Spinner) findViewById(R.id.spinner_filter);
+        filter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int j, long l) {
+                String item_filter = filter.getSelectedItem().toString();
+                switch (item_filter){
+                    case "Carton":
+
+                        for(int i = 0; i < lista.size(); i++){
+                            if(lista.get(i).getType_material().equals("Carton")){
+                                carton.add(lista.get(i));
+                            }
+                        }
+                        ListView listViewCarton = (ListView) findViewById(R.id.MenuRec_list);
+                        MyAdapterPublication adapterCarton = new MyAdapterPublication(getApplicationContext(), R.layout.list_view_publications_rec,carton);
+                        listViewCarton.setAdapter(adapterCarton);
+                        listViewCarton.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                Intent intent1 = new Intent(getApplicationContext(), PublicationInfo.class);
+                                intent1.putExtra("id_publication",String.valueOf(carton.get(i).getId_publication()));
+                                intent1.putExtra("tipo_material",carton.get(i).getType_material());
+                                intent1.putExtra("peso", carton.get(i).getWeight());
+                                intent1.putExtra("volumen", carton.get(i).getVolume());
+                                intent1.putExtra("direccion", carton.get(i).getAddress());
+                                intent1.putExtra("descripcion", carton.get(i).getDescription());
+                                intent1.putExtra("token", token);
+                                intent1.putExtra("email", email);
+                                intent1.putExtra("name", name);
+                                intent1.putExtra("id", String.valueOf(id));
+                                startActivity(intent1);
+                                finish();
+                            }
+                        });
+                        break;
+                    case "Vidrio":
+                        for(int i = 0; i < lista.size(); i++){
+                            if(lista.get(i).getType_material().equals("Vidrio")){
+                                vidrio.add(lista.get(i));
+                            }
+                        }
+                        ListView listViewVidrio = (ListView) findViewById(R.id.MenuRec_list);
+                        MyAdapterPublication adapterVidrio = new MyAdapterPublication(getApplicationContext(), R.layout.list_view_publications_rec,vidrio);
+                        listViewVidrio.setAdapter(adapterVidrio);
+                        listViewVidrio.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                Intent intent1 = new Intent(getApplicationContext(), PublicationInfo.class);
+                                intent1.putExtra("id_publication",String.valueOf(vidrio.get(i).getId_publication()));
+                                intent1.putExtra("tipo_material",vidrio.get(i).getType_material());
+                                intent1.putExtra("peso", vidrio.get(i).getWeight());
+                                intent1.putExtra("volumen", vidrio.get(i).getVolume());
+                                intent1.putExtra("direccion", vidrio.get(i).getAddress());
+                                intent1.putExtra("descripcion", vidrio.get(i).getDescription());
+                                intent1.putExtra("token", token);
+                                intent1.putExtra("email", email);
+                                intent1.putExtra("name", name);
+                                intent1.putExtra("id", String.valueOf(id));
+                                startActivity(intent1);
+                                finish();
+                            }
+                        });
+                        break;
+                    case "Metal":
+                        for(int i = 0; i < lista.size(); i++){
+                            if(lista.get(i).getType_material().equals("Metal")){
+                                metal.add(lista.get(i));
+                            }
+                        }
+                        ListView listViewMetal = (ListView) findViewById(R.id.MenuRec_list);
+                        MyAdapterPublication adapterMetal = new MyAdapterPublication(getApplicationContext(), R.layout.list_view_publications_rec,metal);
+                        listViewMetal.setAdapter(adapterMetal);
+                        listViewMetal.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                Intent intent1 = new Intent(getApplicationContext(), PublicationInfo.class);
+                                intent1.putExtra("id_publication",String.valueOf(metal.get(i).getId_publication()));
+                                intent1.putExtra("tipo_material",metal.get(i).getType_material());
+                                intent1.putExtra("peso", metal.get(i).getWeight());
+                                intent1.putExtra("volumen", metal.get(i).getVolume());
+                                intent1.putExtra("direccion", metal.get(i).getAddress());
+                                intent1.putExtra("descripcion", metal.get(i).getDescription());
+                                intent1.putExtra("token", token);
+                                intent1.putExtra("email", email);
+                                intent1.putExtra("name", name);
+                                intent1.putExtra("id", String.valueOf(id));
+                                startActivity(intent1);
+                                finish();
+                            }
+                        });
+                        break;
+                    case "Papel":
+                        for(int i = 0; i < lista.size(); i++){
+                            if(lista.get(i).getType_material().equals("Papel")){
+                                papel.add(lista.get(i));
+                            }
+                        }
+                        ListView listViewPapel = (ListView) findViewById(R.id.MenuRec_list);
+                        MyAdapterPublication adapterPapel = new MyAdapterPublication(getApplicationContext(), R.layout.list_view_publications_rec,papel);
+                        listViewPapel.setAdapter(adapterPapel);
+                        listViewPapel.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                Intent intent1 = new Intent(getApplicationContext(), PublicationInfo.class);
+                                intent1.putExtra("id_publication",String.valueOf(papel.get(i).getId_publication()));
+                                intent1.putExtra("tipo_material",papel.get(i).getType_material());
+                                intent1.putExtra("peso", papel.get(i).getWeight());
+                                intent1.putExtra("volumen", papel.get(i).getVolume());
+                                intent1.putExtra("direccion", papel.get(i).getAddress());
+                                intent1.putExtra("descripcion", papel.get(i).getDescription());
+                                intent1.putExtra("token", token);
+                                intent1.putExtra("email", email);
+                                intent1.putExtra("name", name);
+                                intent1.putExtra("id", String.valueOf(id));
+                                startActivity(intent1);
+                                finish();
+                            }
+                        });
+                        break;
+                    default:
+                        if(lista != null){
+                            ListView listViewTodos = (ListView) findViewById(R.id.MenuRec_list);
+                            MyAdapterPublication adapterTodos = new MyAdapterPublication(getApplicationContext(), R.layout.list_view_publications_rec,lista);
+                            listViewTodos.setAdapter(adapterTodos);
+                            listViewTodos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                @Override
+                                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                    Intent intent1 = new Intent(getApplicationContext(), PublicationInfo.class);
+                                    intent1.putExtra("id_publication",String.valueOf(lista.get(i).getId_publication()));
+                                    intent1.putExtra("tipo_material",lista.get(i).getType_material());
+                                    intent1.putExtra("peso", lista.get(i).getWeight());
+                                    intent1.putExtra("volumen", lista.get(i).getVolume());
+                                    intent1.putExtra("direccion", lista.get(i).getAddress());
+                                    intent1.putExtra("descripcion", lista.get(i).getDescription());
+                                    intent1.putExtra("token", token);
+                                    intent1.putExtra("email", email);
+                                    intent1.putExtra("name", name);
+                                    intent1.putExtra("id", String.valueOf(id));
+                                    startActivity(intent1);
+                                    finish();
+                                }
+                            });
+                        }
+
+                        break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         Call<List<ListPublications>> listResponseCall = RetrofitClient.getApiService().getListPublications();
         listResponseCall.enqueue(new Callback<List<ListPublications>>() {

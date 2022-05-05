@@ -38,5 +38,13 @@
         <item>Papel</item>
     </string-array>
 
+    <string-array name="filter">
+        <item>Todos</item>
+        <item>Carton</item>
+        <item>Vidrio</item>
+        <item>Metal</item>
+        <item>Papel</item>
+    </string-array>
+
 
 </resources>
