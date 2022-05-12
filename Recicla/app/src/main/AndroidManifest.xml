@@ -13,10 +13,25 @@
         android:theme="@style/Theme.Recicla"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".EditPublication"
+            android:name=".ListHistoryPublication"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity
+            android:name=".ListHistoryRequest"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".ListOwnRequestPen"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".EditPublication"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".PublicationsActions"
             android:exported="false"

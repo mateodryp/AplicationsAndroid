@@ -11,7 +11,6 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
-import unipiloto.edu.co.recicla.models.AcceptResponse;
 import unipiloto.edu.co.recicla.models.ActionRequestPublication;
 import unipiloto.edu.co.recicla.models.DeleteResponse;
 import unipiloto.edu.co.recicla.models.EditRequest;
@@ -21,7 +20,6 @@ import unipiloto.edu.co.recicla.models.ListPublications;
 import unipiloto.edu.co.recicla.models.LoginRequest;
 import unipiloto.edu.co.recicla.models.LoginResponse;
 import unipiloto.edu.co.recicla.models.PublicacionRequest;
-import unipiloto.edu.co.recicla.models.RejectResponse;
 import unipiloto.edu.co.recicla.models.Response;
 import unipiloto.edu.co.recicla.models.SolicitudRequest;
 
@@ -58,11 +56,14 @@ public interface APIService {
     @POST("users/login/")
     Call<LoginResponse> userLogin(@Body LoginRequest loginRequest);
 
-    @GET("publications/list_publication/")
+    @GET("publications/publications_availables_all/")
     Call<List<ListPublications>> getListPublications();
 
     @GET("publications/publications_availables/{id}")
     Call<List<ListOwnPublications>> getListOwnPublications(@Path("id") int id);
+
+    @GET("publications/publications_all/{id}/")
+    Call<List<ListOwnPublications>> getHistoryPublication(@Path("id") int id);
 
     @FormUrlEncoded
     @POST("http://168.138.144.152:8000/requests/accepted_request/")
@@ -85,6 +86,12 @@ public interface APIService {
 
     @GET("requests/requests_availables/{id}")
     Call<List<ListOwnRequest>> getListOwnRequest(@Path("id") int id);
+
+    @GET("requests/requests_availables_recycler/{id}/")
+    Call<List<ListOwnRequest>> getListOwnRequestPen(@Path("id") int id);
+
+    @GET("requests/requests_all_recycler/{id}/")
+    Call<List<ListOwnRequest>> getHistoryRequest(@Path("id") int id);
 
     @FormUrlEncoded
     @POST("publications/publication/")

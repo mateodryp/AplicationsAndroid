@@ -52,6 +52,20 @@ public class Menu_prov extends AppCompatActivity {
             }
         });
 
+        ImageView history = (ImageView) findViewById(R.id.menuProv_history);
+        history.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(),ListHistoryPublication.class);
+                intent.putExtra("token", token);
+                intent.putExtra("email", email);
+                intent.putExtra("id", id);
+                intent.putExtra("name", name);
+                startActivity(intent);
+                finish();
+            }
+        });
+
         Call<List<ListOwnPublications>> listCall = RetrofitClient.getApiService().getListOwnPublications(Integer.parseInt(id));
         listCall.enqueue(new Callback<List<ListOwnPublications>>() {
             @Override

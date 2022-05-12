@@ -13,7 +13,6 @@ public class ListOwnRequest {
     private String recycler;
     private int id_request;
     private int id_recycler;
-
     public int getId_recycler() {
         return id_recycler;
     }

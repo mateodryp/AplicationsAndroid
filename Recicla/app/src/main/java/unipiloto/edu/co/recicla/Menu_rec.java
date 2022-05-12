@@ -11,6 +11,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -48,6 +49,34 @@ public class Menu_rec extends AppCompatActivity {
         id = intent.getStringExtra("id");
         TextView nameText = (TextView) findViewById(R.id.menuRec_name);
         nameText.setText(name);
+
+
+        ImageView solicitudes_pendientes = (ImageView)  findViewById(R.id.MenuRec_solicitudes);
+        solicitudes_pendientes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(),ListOwnRequestPen.class);
+                intent.putExtra("token", token);
+                intent.putExtra("email", email);
+                intent.putExtra("id", id);
+                intent.putExtra("name", name);
+                startActivity(intent);
+                finish();
+            }
+        });
+        ImageView historial = (ImageView)  findViewById(R.id.MenuRec_history);
+        historial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(),ListHistoryRequest.class);
+                intent.putExtra("token", token);
+                intent.putExtra("email", email);
+                intent.putExtra("id", id);
+                intent.putExtra("name", name);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         Spinner filter = (Spinner) findViewById(R.id.spinner_filter);
         filter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
