@@ -12,6 +12,7 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
 import unipiloto.edu.co.recicla.models.ActionRequestPublication;
+import unipiloto.edu.co.recicla.models.ChangePassword;
 import unipiloto.edu.co.recicla.models.DeleteResponse;
 import unipiloto.edu.co.recicla.models.EditRequest;
 import unipiloto.edu.co.recicla.models.ListOwnPublications;
@@ -121,6 +122,13 @@ public interface APIService {
     Call<SolicitudRequest>registerSolicitud(
             @Field("recycler") int recycler,
             @Field("publication") int publication
+    );
+
+    @FormUrlEncoded
+    @POST("users/change_password/{id}/")
+    Call<ChangePassword>changePassword(
+            @Path("id") int id,
+            @Field("password") String password
     );
 
 

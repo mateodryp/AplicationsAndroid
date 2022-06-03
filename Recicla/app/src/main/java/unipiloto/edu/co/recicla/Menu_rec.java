@@ -78,6 +78,20 @@ public class Menu_rec extends AppCompatActivity {
             }
         });
 
+        ImageView config = (ImageView)  findViewById(R.id.MenuRec_config);
+        config.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(),changePasswordRecicler.class);
+                intent.putExtra("token", token);
+                intent.putExtra("email", email);
+                intent.putExtra("id", id);
+                intent.putExtra("name", name);
+                startActivity(intent);
+                finish();
+            }
+        });
+
         Spinner filter = (Spinner) findViewById(R.id.spinner_filter);
         filter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

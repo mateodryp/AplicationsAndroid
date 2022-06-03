@@ -1,9 +1,17 @@
 package unipiloto.edu.co.recicla;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.app.TaskStackBuilder;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -19,6 +27,8 @@ import unipiloto.edu.co.recicla.remote.RetrofitClient;
 
 public class registerRec extends AppCompatActivity {
 
+    private static final String CHANNEL_ID = "Canal";
+    private PendingIntent pendingIntent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +64,10 @@ public class registerRec extends AppCompatActivity {
                         String code= String.valueOf(response.raw().code());
 
                         if(code.equals("201")){
+                            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+                            }else{
+                            }
+
                             Toast.makeText(getApplicationContext(),"Usuario correctamente registrado",Toast.LENGTH_LONG).show();
                             Intent intent=new Intent(getApplicationContext(),login.class);
                             startActivity(intent);
@@ -84,5 +98,36 @@ public class registerRec extends AppCompatActivity {
         }
 
 
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void showNotification(){
+        NotificationChannel channel = new NotificationChannel(CHANNEL_ID,"NEW", NotificationManager.IMPORTANCE_DEFAULT);
+        NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        manager.createNotificationChannel(channel);
+        showNewNotification();
+    }
+
+    private void showNewNotification(){
+        setPendingIntent(login.class);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(),
+                CHANNEL_ID)
+                .setSmallIcon(R.drawable.logo)
+                .setContentTitle("Registro Exitoso")
+                .setContentText("Se ha registrado exitosamente")
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setContentIntent(pendingIntent);
+
+        NotificationManagerCompat managerCompat = NotificationManagerCompat.from(getApplicationContext());
+        managerCompat.notify(1, builder.build());
+
+    }
+
+    private void setPendingIntent(Class<?> classAc){
+        Intent intent = new Intent(getApplicationContext(), classAc);
+        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+        stackBuilder.addParentStack(classAc);
+        stackBuilder.addNextIntent(intent);
+        pendingIntent = stackBuilder.getPendingIntent(1, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 }

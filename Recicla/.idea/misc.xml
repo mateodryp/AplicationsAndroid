@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Trabajo/AndroidStudioProjects/Recicla/app/src/main/res/layout/activity_change_password_recicler.xml" value="0.25" />
         <entry key="..\:/Users/Trabajo/AndroidStudioProjects/Recicla/app/src/main/res/layout/activity_edit_publication.xml" value="0.25" />
         <entry key="..\:/Users/Trabajo/AndroidStudioProjects/Recicla/app/src/main/res/layout/activity_list_history_publication.xml" value="0.23958333333333334" />
         <entry key="..\:/Users/Trabajo/AndroidStudioProjects/Recicla/app/src/main/res/layout/activity_list_history_request.xml" value="0.23958333333333334" />

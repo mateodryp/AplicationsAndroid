@@ -91,67 +91,82 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="20dp"
         android:text="Tipo de material: Vidrio"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/RequestInfo_public_image" />
 
     <TextView
-        android:id="@+id/RequestInfo_public_recicler"
-        android:layout_width="wrap_content"
+        android:id="@+id/RequestInfo_public_description"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
-        android:text="Peso: 30 Kg"
+        android:layout_marginTop="20dp"
+        android:text="Descripción: Botellas de vidrio lkndrgsdnfglksjdfgnlksjdfnglksjdfgnlskdjfnglksdjfngkljsdfnglksdjgfnlksjdfg"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RequestInfo_public_typeMaterial" />
-
-    <TextView
-        android:id="@+id/RequestInfo_public_idPublication"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
-        android:text="Volumen: 3 m3"
-        android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RequestInfo_public_recicler" />
+        app:layout_constraintTop_toBottomOf="@+id/RequestInfo_public_date" />
 
     <TextView
         android:id="@+id/RequestInfo_public_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         android:text="Dirección: Cll 47 # 5 - 6"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/RequestInfo_public_idPublication" />
 
     <TextView
-        android:id="@+id/RequestInfo_public_description"
-        android:layout_width="350dp"
+        android:id="@+id/RequestInfo_public_idPublication"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
-        android:text="Descripción: Botellas de vidrio lkndrgsdnfglksjdfgnlksjdfnglksjdfgnlskdjfnglksdjfngkljsdfnglksdjgfnlksjdfg"
+        android:layout_marginTop="20dp"
+        android:text="Volumen: 3 m3"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RequestInfo_public_date" />
+        app:layout_constraintTop_toBottomOf="@+id/RequestInfo_public_recicler" />
+
+    <TextView
+        android:id="@+id/RequestInfo_public_recicler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Peso: 30 Kg"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/RequestInfo_public_typeMaterial" />
+
+    <Button
+        android:id="@+id/RequestInfo_Rute"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/GreenMain"
+        android:gravity="center"
+        android:text="Ver Ruta"
+        android:textColor="@color/white"
+        android:textSize="8pt"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/RequestInfo_public_Accept"
         android:layout_width="200dp"
         android:layout_height="40dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="16dp"
         android:background="@color/GreenMain"
         android:gravity="center"
         android:text="Solicitar"
         android:textColor="@color/white"
         android:textSize="8pt"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintBottom_toTopOf="@+id/RequestInfo_Rute"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />

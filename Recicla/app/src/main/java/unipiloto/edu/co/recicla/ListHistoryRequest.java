@@ -15,6 +15,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import unipiloto.edu.co.recicla.models.ChangePassword;
 import unipiloto.edu.co.recicla.models.ListOwnRequest;
 import unipiloto.edu.co.recicla.remote.RetrofitClient;
 
@@ -55,6 +56,20 @@ public class ListHistoryRequest extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(getApplicationContext(),ListOwnRequestPen.class);
+                intent.putExtra("token", token);
+                intent.putExtra("email", email);
+                intent.putExtra("id", id);
+                intent.putExtra("name", name);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        ImageView config = (ImageView) findViewById(R.id.Rec_Sol_His_config);
+        config.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(), changePasswordRecicler.class);
                 intent.putExtra("token", token);
                 intent.putExtra("email", email);
                 intent.putExtra("id", id);
